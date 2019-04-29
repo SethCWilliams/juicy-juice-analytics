@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="brochure-background row">
+    <p class="col-md-4 brochure no-gutters">Kids love the <span id="count">109</span> options</p>
+{#    {{ total }}#}
+{#    {{ calories_per_oz }}#}
+    <p class="col-md-4 brochure no-gutters">Parents love that there are only around 15 calories per ounce</p>
+    <p class="col-md-4 brochure no-gutters">They both love the taste</p>
+    </div>
+    <div class="row">
+        <p class="col text-center">Figure out what options are best for you and your family. Click an ingredient you know you love, and see what
+            products we carry that match your taste</p>
+    </div>
+    <div class="row">
+        {% for item in index %}
+            <div class="card col-md-3">
+              <div class="card-body">
+                {{ item }}
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{#    {% for item, names in index.items() %}#}
+{#    <h1>{{ item }} </h1>#}
+{##}
+{#        {% for name in names %}#}
+{#        <h4>{{ name }}</h4>#}
+{#        {% endfor %}#}
+{##}
+{##}
+{#    {% endfor %}#}
+{##}
+{#    <ul>#}
+{#        {% for ingredient in ingredients %}#}
+{#        <li>{{ ingredient }}</li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+
+{#    {{ index }}#}
+{#    {% for field in fields %}#}
+{#        <h2>{{ field.nf_ingredient_statement }}</h2>#}
+{#        <p>{{ field.nf_calories }}</p>#}
+{#        <p>{{ field.nf_serving_size_qty }}{{ field.nf_serving_size_unit }}</p>#}
+{#        <p>{{ field.item_id }}</p>#}
+{##}
+{#    {% endfor %}#}
+
+{% endblock content %}
