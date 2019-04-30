@@ -10,7 +10,8 @@ from flask_humanize import Humanize
 
 app = Flask(__name__)
 humanize = Humanize(app)
-
+app_id = {}
+app_key = {}
 
 @app.route("/")
 def index():
