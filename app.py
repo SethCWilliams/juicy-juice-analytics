@@ -5,8 +5,8 @@ from flask_humanize import Humanize
 # try:
 #     from juicykey import app_id, app_key
 # except:
-app_id = process.env.app_id
-app_key = process.env.app_key
+app_id = process.env.key_one
+app_key = process.env.key_two
 
 app = Flask(__name__)
 humanize = Humanize(app)
