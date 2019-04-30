@@ -5,13 +5,11 @@ from flask_humanize import Humanize
 # try:
 #     from juicykey import app_id, app_key
 # except:
-#     app_id = {}
-#     app_key = {}
+app_id = process.env.app_id
+app_key = process.env.app_key
 
 app = Flask(__name__)
 humanize = Humanize(app)
-app_id = {}
-app_key = {}
 
 @app.route("/")
 def index():
