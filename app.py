@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 import requests
 from flask_humanize import Humanize
-from juicykey import app_id, app_key
+# from juicykey import app_id, app_key
 
 
 app = Flask(__name__)
