@@ -14,13 +14,37 @@
     </div>
     <div class="row">
         {% for item in index %}
-            <div class="card col-md-3">
-              <div class="card-body">
-                {{ item }}
+            <div class="card btn btn-warning col-md-3" data-toggle="modal" data-target="#myModal{{ item }}">
+              <div class="card-body text-center">
+                  {{ item }}
               </div>
             </div>
         {% endfor %}
     </div>
+    {% for item, names in index.items() %}
+        <div class="modal fade" id="myModal{{ item }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{ item }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <ul>
+                    {% for name in names %}
+                        <li>{{ name }}</li>
+                    {% endfor %}
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
 
 {#    {% for item, names in index.items() %}#}
 {#    <h1>{{ item }} </h1>#}

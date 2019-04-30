@@ -11,6 +11,10 @@
     position: relative;
 }
 
+li {
+    list-style: none;
+}
+
 .container-fluid {
     padding: 0;
 }

@@ -77,10 +77,11 @@ def index():
 # #     return render_template('index.html', **ctx)
 #
     ctx = {
-        'index': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, "alksnnkdlvooennsl"]
+        'index': {1: [1, 2, 3], 2: [1, 2, 3], 3: [2, 4, 5], 4: ['skdje', 'dfnkw'], 5: [5, 3, 2533], 6: [1, 2, 3], 7: [1, 2, 3], 8: [1, 2, 3], 9: [11, 22, 33, 44], 10: ['afs', 'fjknel', 'fasd;'], 11: ['fad', 'sad', 'dad']}
     }
     return render_template('index.html', **ctx)
 
 
+print('main', __name__)
 if __name__ == '__main__':
     app.run()
