@@ -10,6 +10,7 @@ flask = "*"
 gunicorn = "*"
 requests = "*"
 flask-humanize = "*"
+request = "*"
 
 [requires]
 python_version = "3.7"

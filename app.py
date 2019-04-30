@@ -8,7 +8,7 @@ app = Flask(__name__)
 humanize = Humanize(app)
 
 
-@app.route('/')
+@app.route("/")
 def index():
 # #     result_span = []
 # #     unique_ingredient_list = []
@@ -82,6 +82,5 @@ def index():
     return render_template('index.html', **ctx)
 
 
-print('main', __name__)
 if __name__ == '__main__':
     app.run()
