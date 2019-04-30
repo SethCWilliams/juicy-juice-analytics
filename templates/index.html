@@ -2,27 +2,34 @@
 
 {% block content %}
     <div class="brochure-background row">
-    <p class="col-md-4 brochure no-gutters">Kids love the <span id="count">109</span> options</p>
-{#    {{ total }}#}
-{#    {{ calories_per_oz }}#}
-    <p class="col-md-4 brochure no-gutters">Parents love that there are only around 15 calories per ounce</p>
-    <p class="col-md-4 brochure no-gutters">They both love the taste</p>
+        <p class="d-none d-md-block col-md-4 brochure no-gutters">Kids love the <span class="count pronounced">{{ total }}</span> options</p>
+
+
+
+        <p class="d-none d-md-block col-md-4 brochure no-gutters" id="middle-brochure">Parents love that there are only around <span class="count pronounced">{{ calories_per_oz }}</span> calories per ounce</p>
+        <p class="d-none d-md-block col-md-4 brochure no-gutters">They both <span class="pronounced">love</span> the taste</p>
+        <p class="d-md-none font-size text-center col-12"><span class="count pronounced">{{ total }}</span> options at around <span class='count pronounced'>{{ calories_per_oz }}</span> calories per ounce</p>
+    </div>
+
+    <div class="row text-center">
+        <h3 class="col">Figure out what options are best for you and your family. </h3>
     </div>
     <div class="row">
-        <p class="col text-center">Figure out what options are best for you and your family. Click an ingredient you know you love, and see what
+        <p class="col text-center mt-2">Click an ingredient you know you love, and see what
             products we carry that match your taste</p>
     </div>
     <div class="row">
         {% for item in index %}
-            <div class="card btn btn-warning col-md-3" data-toggle="modal" data-target="#myModal{{ item }}">
+            <div class="card btn btn-warning col-md-3" data-toggle="modal" data-target="#myModal{{ loop.index }}">
               <div class="card-body text-center">
                   {{ item }}
               </div>
             </div>
         {% endfor %}
     </div>
+
     {% for item, names in index.items() %}
-        <div class="modal fade" id="myModal{{ item }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
