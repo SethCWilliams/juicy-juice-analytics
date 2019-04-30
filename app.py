@@ -2,14 +2,19 @@ from flask import Flask, render_template
 import requests
 from flask_humanize import Humanize
 
+# I set it up this way (along with a plethora of different ways) when I was following some tutorials
+# on how to setup a Flask project so it will deploy to Heroku. I have a Flask project successfully deployed
+# to Heroku, but I couldn't find and difference between this project and the previous one. If you uncomment the code,
+# it would pull the correct info and run it through the string format in the commented out request below
 # try:
 #     from juicykey import app_id, app_key
 # except:
-app_id = process.env.key_one
-app_key = process.env.key_two
+    # app_id = process.env.key_one
+    # app_key = process.env.key_two
 
 app = Flask(__name__)
 humanize = Humanize(app)
+
 
 @app.route("/")
 def index():
@@ -21,7 +26,11 @@ def index():
     higher_search_result = 50
     total_hits = 1
     while len(result_span) != total_hits:
-            nutrionix_data = requests.get("https://api.nutritionix.com/v1_1/search/?brand_id=51db37d0176fe9790a899db2&results={}:{}&fields=*&appId={}&appKey={}".format(lower_search_result, higher_search_result, app_id, app_key))
+            # This is how I had the call setup prior to Heroku deployment issues
+            # nutrionix_data = requests.get("https://api.nutritionix.com/v1_1/search/?brand_id=51db37d0176fe9790a899db2&results={}:{}&fields=*&appId={}&appKey={}".format(lower_search_result, higher_search_result, app_id, app_key))
+            nutrionix_data = requests.get(
+                "https://api.nutritionix.com/v1_1/search/?brand_id=51db37d0176fe9790a899db2&results={}:{}&fields=*&appId=f611e1fd&appKey=c63a3b9c90c5586828562a2cb5e93211".format(
+                    lower_search_result, higher_search_result))
             nutrionix_data_json = nutrionix_data.json()
             nutrionix_hits = nutrionix_data_json['hits']
 
