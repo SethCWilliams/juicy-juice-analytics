@@ -2,13 +2,16 @@
 
 {% block content %}
     <div class="brochure-background row">
-        <p class="d-none d-md-block col-md-4 brochure no-gutters">Kids love the <span class="count pronounced">{{ total }}</span> options</p>
+        <p class="d-none d-md-block col-md-4 brochure no-gutters">Kids love the <span
+                class="count pronounced">{{ total }}</span> options</p>
 
 
-
-        <p class="d-none d-md-block col-md-4 brochure no-gutters" id="middle-brochure">Parents love that there are only around <span class="count pronounced">{{ calories_per_oz }}</span> calories per ounce</p>
-        <p class="d-none d-md-block col-md-4 brochure no-gutters">They both <span class="pronounced">love</span> the taste</p>
-        <p class="d-md-none font-size text-center col-12"><span class="count pronounced">{{ total }}</span> options at around <span class='count pronounced'>{{ calories_per_oz }}</span> calories per ounce</p>
+        <p class="d-none d-md-block col-md-4 brochure no-gutters" id="middle-brochure">Parents love that there are only
+            around <span class="count pronounced">{{ calories_per_oz }}</span> calories per ounce</p>
+        <p class="d-none d-md-block col-md-4 brochure no-gutters">They both <span class="pronounced">love</span> the
+            taste</p>
+        <p class="d-md-none font-size text-center col-12"><span class="count pronounced">{{ total }}</span> options at
+            around <span class='count pronounced'>{{ calories_per_oz }}</span> calories per ounce</p>
     </div>
 
     <div class="row text-center">
@@ -19,63 +22,39 @@
             products we carry that match your taste</p>
     </div>
     <div class="row">
-        {% for item in index %}
-            <div class="card btn btn-warning col-md-3" data-toggle="modal" data-target="#myModal{{ loop.index }}">
-              <div class="card-body text-center">
-                  {{ item }}
-              </div>
+    {% for item in index %}
+        <div class="card btn btn-warning col-md-3" data-toggle="modal" data-target="#myModal{{ loop.index }}">
+            <div class="card-body text-center">
+                {{ item }}
             </div>
-        {% endfor %}
+        </div>
+    {% endfor %}
     </div>
 
     {% for item, names in index.items() %}
-        <div class="modal fade" id="myModal{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+        <div class="modal fade" id="myModal{{ loop.index }}" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{ item }}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <ul>
-                    {% for name in names %}
-                        <li>{{ name }}</li>
-                    {% endfor %}
-                </ul>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ item }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {% for name in names %}
+                            <li>{{ name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
-          </div>
+        </div>
         </div>
     {% endfor %}
-
-{#    {% for item, names in index.items() %}#}
-{#    <h1>{{ item }} </h1>#}
-{##}
-{#        {% for name in names %}#}
-{#        <h4>{{ name }}</h4>#}
-{#        {% endfor %}#}
-{##}
-{##}
-{#    {% endfor %}#}
-{##}
-{#    <ul>#}
-{#        {% for ingredient in ingredients %}#}
-{#        <li>{{ ingredient }}</li>#}
-{#        {% endfor %}#}
-{#    </ul>#}
-
-{#    {{ index }}#}
-{#    {% for field in fields %}#}
-{#        <h2>{{ field.nf_ingredient_statement }}</h2>#}
-{#        <p>{{ field.nf_calories }}</p>#}
-{#        <p>{{ field.nf_serving_size_qty }}{{ field.nf_serving_size_unit }}</p>#}
-{#        <p>{{ field.item_id }}</p>#}
-{##}
-{#    {% endfor %}#}
 
 {% endblock content %}

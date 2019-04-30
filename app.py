@@ -5,7 +5,9 @@ from flask_humanize import Humanize
 # I set it up this way (along with a plethora of different ways) when I was following some tutorials
 # on how to setup a Flask project so it will deploy to Heroku. I have a Flask project successfully deployed
 # to Heroku, but I couldn't find and difference between this project and the previous one. If you uncomment the code,
-# it would pull the correct info and run it through the string format in the commented out request below
+# it would pull the correct info and run it through the string format in the commented out request below.
+# I have done similar things with Flask, Django, and React, but for some reason I'm hitting a wall. I figured this
+# API can't really do any damage, so the key and id are hardcoded so that Heroku will work. Make it work, make it right, make it fast.
 # try:
 #     from juicykey import app_id, app_key
 # except:
@@ -26,6 +28,7 @@ def index():
     higher_search_result = 50
     total_hits = 1
     while len(result_span) != total_hits:
+            # I don't normally hardcode api keys. Read the above comment if you haven't already
             # This is how I had the call setup prior to Heroku deployment issues
             # nutrionix_data = requests.get("https://api.nutritionix.com/v1_1/search/?brand_id=51db37d0176fe9790a899db2&results={}:{}&fields=*&appId={}&appKey={}".format(lower_search_result, higher_search_result, app_id, app_key))
             nutrionix_data = requests.get(
