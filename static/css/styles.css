@@ -39,6 +39,13 @@ li {
     color: #FB5E64;
 }
 
+.xl-tag {
+    font-family: Varela Round, sans-serif;
+    font-size: 10vh;
+    /*height: 45vh;*/
+    color: #FB5E64;
+}
+
 .brochure-background {
     background-color: #FB5E64;
     height: 20vh;
